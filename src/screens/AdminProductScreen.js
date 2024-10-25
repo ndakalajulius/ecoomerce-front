@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { listProducts, deleteProduct } from '../actions/productActions'; // Assuming you have these actions
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { listProducts, deleteProduct } from '../actions/productActions';
+
+
+import { Link, useNavigate } from "react-router-dom";
 
 const AdminProductScreen = () => {
   const dispatch = useDispatch();
@@ -18,7 +20,7 @@ const AdminProductScreen = () => {
   }, [dispatch, successDelete]);
 
   const deleteHandler = (id) => {
-    if (window.confirm('Are you sure you want to delete this product?')) {
+    if (window.confirm("Are you sure you want to delete this product?")) {
       dispatch(deleteProduct(id));
     }
   };
@@ -50,9 +52,7 @@ const AdminProductScreen = () => {
                 <td>{product.price}</td>
                 <td>{product.category}</td>
                 <td>
-                  <Link to={`/admin/product/${product._id}/edit`}>
-                    Edit
-                  </Link>
+                  <Link to={`/admin/product/${product._id}/edit`}>Edit</Link>
                   <button onClick={() => deleteHandler(product._id)}>
                     Delete
                   </button>
